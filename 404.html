@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — RafeGangster</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #ff2d55;
+    --orange: #ff6a00;
+    --yellow: #ffe600;
+    --pink: #ff00cc;
+    --bg: #0a0005;
+  }
+
+  body {
+    background: var(--bg);
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    cursor: none;
+  }
+
+  /* custom cursor */
+  .cursor {
+    position: fixed;
+    width: 12px; height: 12px;
+    background: var(--red);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, width 0.2s, height 0.2s;
+    box-shadow: 0 0 12px var(--red);
+  }
+  .cursor-ring {
+    position: fixed;
+    width: 36px; height: 36px;
+    border: 1.5px solid rgba(255,45,85,0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.12s ease, width 0.2s, height 0.2s;
+  }
+
+  /* scanlines */
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 2px,
+      rgba(0,0,0,0.18) 2px, rgba(0,0,0,0.18) 4px
+    );
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  /* grid */
+  .grid-bg {
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,45,85,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,45,85,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: gridDrift 20s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes gridDrift { 0%{transform:translateY(0)} 100%{transform:translateY(40px)} }
+
+  .orb {
+    position: fixed; border-radius: 50%;
+    filter: blur(100px); pointer-events: none;
+  }
+  .orb1 { width:500px;height:500px;background:#ff2d55;top:-200px;left:-100px;opacity:0.12; }
+  .orb2 { width:400px;height:400px;background:#ff6a00;bottom:-150px;right:-100px;opacity:0.12; }
+  .orb3 { width:250px;height:250px;background:#ff00cc;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.06; }
+
+  /* glitch 404 */
+  .four-o-four {
+    position: relative;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(7rem, 22vw, 18rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--red), var(--orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    user-select: none;
+    animation: flicker 6s infinite;
+  }
+
+  /* glitch layers */
+  .four-o-four::before,
+  .four-o-four::after {
+    content: '404';
+    position: absolute;
+    top: 0; left: 0;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: inherit;
+    letter-spacing: inherit;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .four-o-four::before {
+    background: linear-gradient(135deg, var(--pink), var(--red));
+    -webkit-background-clip: text;
+    animation: glitchTop 3s infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+    opacity: 0.7;
+  }
+  .four-o-four::after {
+    background: linear-gradient(135deg, var(--orange), var(--yellow));
+    -webkit-background-clip: text;
+    animation: glitchBot 2.5s infinite;
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+    opacity: 0.7;
+  }
+
+  @keyframes glitchTop {
+    0%,90%,100% { transform: translate(0); }
+    92% { transform: translate(-4px, -2px); }
+    94% { transform: translate(4px, 0); }
+    96% { transform: translate(-2px, 1px); }
+    98% { transform: translate(3px, -1px); }
+  }
+  @keyframes glitchBot {
+    0%,88%,100% { transform: translate(0); }
+    90% { transform: translate(4px, 2px); }
+    93% { transform: translate(-3px, 0); }
+    96% { transform: translate(2px, -1px); }
+  }
+  @keyframes flicker {
+    0%,94%,96%,98%,100% { opacity: 1; }
+    95% { opacity: 0.85; }
+    97% { opacity: 0.9; }
+    99% { opacity: 0.8; }
+  }
+
+  /* content */
+  .content {
+    position: relative; z-index: 10;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 20px;
+    text-align: center;
+    padding: 0 20px;
+    animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) both;
+  }
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(30px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+
+  .tag {
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    display: flex; align-items: center; gap: 10px;
+    animation: fadeUp 0.8s 0.1s cubic-bezier(0.22,1,0.36,1) both;
+  }
+  .tag::before,.tag::after { content:''; width:24px; height:1px; background:rgba(255,255,255,0.2); }
+
+  .headline {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(1.3rem, 4vw, 2rem);
+    letter-spacing: 0.04em;
+    animation: fadeUp 0.8s 0.2s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  .subtext {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.08em;
+    line-height: 1.7;
+    max-width: 360px;
+    animation: fadeUp 0.8s 0.3s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  /* dare card */
+  .dare-card {
+    margin-top: 8px;
+    padding: 18px 28px;
+    background: rgba(255,45,85,0.06);
+    border: 1px solid rgba(255,45,85,0.2);
+    border-radius: 14px;
+    max-width: 400px;
+    display: flex; flex-direction: column; gap: 8px;
+    animation: fadeUp 0.8s 0.4s cubic-bezier(0.22,1,0.36,1) both;
+    position: relative; overflow: hidden;
+  }
+  .dare-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--red), transparent);
+  }
+  .dare-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+  .dare-text {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.03em;
+    line-height: 1.4;
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* buttons */
+  .actions {
+    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+    animation: fadeUp 0.8s 0.5s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  .btn-home {
+    padding: 13px 36px;
+    background: linear-gradient(135deg, var(--red), var(--orange));
+    border: none; border-radius: 999px;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 0.9rem; letter-spacing: 0.12em;
+    color: #000; text-decoration: none;
+    text-transform: uppercase;
+    cursor: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 0 30px rgba(255,45,85,0.35);
+  }
+  .btn-home:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 50px rgba(255,45,85,0.6);
+  }
+  .btn-home:active { transform: scale(0.96); }
+
+  .btn-ghost {
+    padding: 13px 36px;
+    background: transparent;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    border-radius: 999px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.45); text-decoration: none;
+    text-transform: uppercase; cursor: none;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btn-ghost:hover {
+    border-color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.8);
+    transform: scale(1.04);
+  }
+
+  /* github badge */
+  .badge {
+    position: fixed; bottom: 28px;
+    font-size: 0.58rem; letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.18); text-transform: uppercase;
+    text-decoration: none;
+    animation: fadeUp 1s 0.7s both;
+    transition: color 0.2s;
+    cursor: none;
+  }
+  .badge:hover { color: rgba(255,255,255,0.45); }
+
+  /* random dare mini-dares cycling */
+  .dare-text { transition: opacity 0.3s; }
+  .dare-text.fading { opacity: 0; }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="grid-bg"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<div class="content">
+  <div class="tag">Error</div>
+
+  <div class="four-o-four">404</div>
+
+  <div class="headline">Page doesn't exist, bro.</div>
+
+  <p class="subtext">
+    Whatever you were looking for ghosted you.<br>
+    While you're here — take a dare instead.
+  </p>
+
+  <div class="dare-card">
+    <div class="dare-label">🔥 Social Dare While You Wait</div>
+    <div class="dare-text" id="dareText">Loading your dare...</div>
+  </div>
+
+  <div class="actions">
+    <a href="/" class="btn-home">← Take Me Home</a>
+    <a href="https://github.com/RafeGangster" class="btn-ghost">@RafeGangster</a>
+  </div>
+</div>
+
+<a class="badge" href="https://github.com/RafeGangster">github.com/rafegangster</a>
+
+<script>
+  // custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
+  (function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
+
+  // cycling dares on the 404 page
+  const dares = [
+    "Walk up to the next person you see and tell them they look like a main character today.",
+    "Text someone you haven't talked to in 6 months right now. No overthinking.",
+    "Ask the next stranger you see what the best decision they made this year was.",
+    "Tell someone nearby they have a really good energy — and mean it.",
+    "Go ask someone what they'd do if today was completely free with no responsibilities.",
+    "Find someone reading and ask if they'd recommend it — let them pitch it to you.",
+    "Ask the next person you see what their go-to hype song is.",
+    "Walk up to someone and ask what they're most proud of that nobody knows about.",
+    "Tell someone 'I bet you're more interesting than you let on' — then ask them to prove it.",
+    "Ask someone what the last brave thing they did was. Don't accept 'nothing'.",
+  ];
+
+  const el = document.getElementById('dareText');
+  let i = Math.floor(Math.random() * dares.length);
+  el.textContent = dares[i];
+
+  setInterval(() => {
+    el.classList.add('fading');
+    setTimeout(() => {
+      i = (i + 1) % dares.length;
+      el.textContent = dares[i];
+      el.classList.remove('fading');
+    }, 300);
+  }, 4000);
+</script>
+</body>
+</html>
