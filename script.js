@@ -1,0 +1,235 @@
+
+const E=(t,p,e)=>({text:t,tip:p,emoji:e,diff:'easy',  heat:1,color:'#ffe600',label:'Easy'});
+const M=(t,p,e)=>({text:t,tip:p,emoji:e,diff:'medium',heat:2,color:'#ff6a00',label:'Medium'});
+const H=(t,p,e)=>({text:t,tip:p,emoji:e,diff:'hard',  heat:3,color:'#ff2d55',label:'Hard'});
+
+const challenges=[
+  // ───── EASY ─────
+  E("Walk up to a girl wearing red and ask her what her favorite movie of all time is","Smile first, make solid eye contact before you open your mouth","🎬"),
+  E("Ask someone with headphones in what song they're listening to right now","Stand in their sightline — don't tap, don't yell","🎧"),
+  E("Compliment a stranger's sneakers and ask where they copped them","Be specific — 'those colorways are fire' hits harder than 'nice shoes'","👟"),
+  E("Ask the barista for their personal off-menu recommendation and order exactly that","No modifications. Full trust. That's the dare.","☕"),
+  E("Tell someone reading a book you need a new read and ask if they'd recommend it","Let them pitch it. Nod. Ask follow-up questions.","📚"),
+  E("Ask a girl with curly hair what her morning routine looks like — say a friend wants tips","People love talking about things they've mastered","💇"),
+  E("Go up to two people sitting together and ask how they met each other","Most people love telling that story — sit back and enjoy it","👫"),
+  E("Ask someone waiting in line their honest opinion on the best thing to order here","You're bonding over a shared problem: the menu","🍽️"),
+  E("Find someone with a visible tattoo and genuinely ask about the story behind it","Tattoos have stories. People with them WANT to tell you.","🎨"),
+  E("Smile and say 'you look like you're having the best day' to the next person you eye contact with","Then zip it. Don't fill the silence. Let them respond.","😄"),
+  E("Ask a girl near the window what she's thinking about — say she looks deep in thought","It's disarming because it's a real observation, not a line","🪟"),
+  E("Ask a stranger to recommend the TV show they just finished — say you need something to binge","People take TV recommendations personally. They'll light up.","📺"),
+  E("Tell a girl you like her vibe and ask what she does for fun on weekends","Keep it breezy. Don't explain why you came over.","🎉"),
+  E("Ask someone at the gym which exercise they swear by that most people skip","Gym people LOVE giving advice when asked. Ask for it.","🏋️"),
+  E("Approach a girl with a tote bag and ask what's inside — say it looks like an adventure kit","Quirky and low stakes. Go wherever she takes it.","👜"),
+  E("Ask a stranger near food stalls which vendor here is the most underrated","Positions you as someone with taste before you say anything else","🌮"),
+  E("Ask a girl standing outside what she'd be doing right now if she had the day completely free","Instant window into her personality","☀️"),
+  E("Tell a cashier something genuinely good happened to you today and ask about their day","People behind counters almost never get asked. Watch their face.","🛒"),
+  E("Ask a girl scrolling her phone if she found anything interesting — say you need something good to watch","She's already in that world. You're just joining it.","📱"),
+  E("Find someone wearing band merch and ask if you've ever seen them live","Instant shared territory if you know them. Learning moment if you don't.","🎸"),
+  E("Ask a stranger waiting for their order what they usually get here","Classic opener. It works because it's genuinely useful.","🥤"),
+  E("Tell a girl you love her energy and ask what she does for work or school","The compliment earns you the question. Use it.","⚡"),
+  E("Ask someone older than you what's the best advice they got in their 20s","Most people have been waiting their whole life for this question","🧓"),
+  E("Ask a girl in a hat where she got it — say you've been looking for one like that","Clothing items are conversation starters. She picked it for a reason.","🧢"),
+  E("Go up to someone eating alone and ask if the food is worth it","Non-threatening, practical, and opens a door","🍜"),
+  E("Ask a girl which city she'd move to tomorrow if she could — gut answer only, no thinking","The no-thinking rule gets you her real answer","🏙️"),
+  E("Tell a stranger their laugh is contagious and ask what was so funny","You're not hitting on anyone. You're just being human.","😂"),
+  E("Ask a girl near a bookshelf to pick a book for you — any book, no reason needed","Giving someone control is disarming. She'll take it seriously.","📖"),
+  E("Ask someone what they'd eat for their last meal on earth","Weird, specific, and tells you EVERYTHING about a person","🍕"),
+  E("Find a girl in a coffee shop and ask if you can sit across from her for 5 minutes — say you want the good energy","Be honest. Confidence in the ask matters more than the words.","☕"),
+  E("Ask a girl what her go-to song is when she needs to hype herself up","Music = instant personality window. Judge nothing.","🎵"),
+  E("Ask a stranger what the most underrated thing about their city is","Works everywhere because everyone has a strong opinion on this","🗺️"),
+  E("Ask a girl what she wished she knew at 16 that she knows now","Works at any age. Reflective. Gets real answers fast.","💡"),
+  E("Find someone in line and ask: would they rather have perfect weather forever or never be tired again?","Random hypotheticals break the ice faster than anything","🌤️"),
+  E("Ask a girl at a table what she's celebrating or working towards right now","Opens the door to her goals. People love talking about what they're building.","🥂"),
+  E("Tell a stranger 'you seem like someone who knows what they're doing' and ask for a restaurant recommendation nearby","Flattery + usefulness. A deadly combo.","🍴"),
+  E("Ask a girl with sunglasses on if she's hiding from someone famous or just the sun","Playful, not creepy. Keep a straight face for half a second.","🕶️"),
+  E("Ask someone what app on their phone they'd never delete and why","Tells you everything and nothing. Great starter.","📲"),
+  E("Find a girl and ask her to rate her week out of ten — then ask what would've made it a 10","You're instantly invested in her answer. She'll notice.","📊"),
+  E("Ask a stranger what skill they wish they had started learning ten years earlier","People are always thinking about this. You just gave them permission to say it out loud.","🎓"),
+
+  // ───── MEDIUM ─────
+  M("Walk up to a girl in a group and tell her her laugh caught your attention — ask what was so funny","Say it TO HER specifically, not the group. Hold eye contact.","😂"),
+  M("Go talk to a girl in red about her family — ask if she's close with them and where she grew up","Lead with 'are you a family person?' — it's disarming and immediately deep","❤️"),
+  M("Sit next to a stranger at a coffee shop and ask them what they're working on","If they're deep in it, say 'big project?' with a grin","💻"),
+  M("Tell a girl with a dog you need the dog's honest opinion on something — ask the dog a serious question","Make it funny, then naturally switch into talking to her","🐕"),
+  M("Walk up to a girl standing alone and ask what she thinks the best city to live in is and why","Follow her answer with real curiosity. Stack one question deep.","🌍"),
+  M("Find two strangers and introduce them to each other — make up a reason they'd love each other","You're the social glue. Own it completely.","🤝"),
+  M("Approach a girl eating alone and ask if the food is good — if yes, sit nearby and keep it going","Ask first. Don't assume. If she's not feeling it, respect it.","🥗"),
+  M("Tell a girl in a bookstore you need to pick a gift for 'a friend' — then ask what she would want","Make it playful. Let her lead the conversation.","📖"),
+  M("Tell a girl in line 'you seem like you have good taste' and ask for her go-to order here","A compliment dressed as a question. Smooth.","🧃"),
+  M("Find someone over 60 and ask what advice they'd give their younger self","This one will actually change your life if you listen carefully","👴"),
+  M("Ask a girl what her biggest non-work, non-family goal is for this year","Gets you past small talk in under 30 seconds","🎯"),
+  M("Tell a girl she looks like she just made an important decision — ask what it was","Most people are always mid-decision. You'll be right 80% of the time.","🤔"),
+  M("Ask a girl to describe herself in three words — then share yours and see if they match","The comparison at the end makes it a game, not an interview","3️⃣"),
+  M("Ask a girl with a coffee if she's a one-cup person or a four-cup person — then ask what she's powering through","Light but opens the door to what's really going on in her life","☕"),
+  M("Tell a girl standing near a window she looks like a main character — ask what her story is today","Some people will laugh. All of them will answer.","🎬"),
+  M("Ask a girl what the most spontaneous thing she's done in the last six months is","The answer tells you everything. And she'll want to explain it.","⚡"),
+  M("Find a girl and ask if she's more of a 'plan everything' or 'figure it out when you get there' person","Personality profiling disguised as small talk","🗓️"),
+  M("Ask a girl what she thinks is genuinely overrated that everyone else seems to love","People have strong opinions on this and rarely get asked","🙄"),
+  M("Walk up to a girl reading and ask what her favorite first line of any book is","If she's a reader she'll love this. If she can't think of one, help her.","📚"),
+  M("Find a girl and ask what her parents got completely right raising her","Positive family question. Deep but warm. Not heavy at all.","👨‍👩‍👧"),
+  M("Ask a girl at a café what she thinks the vibe of this place says about the people who come here","Opinion + social observation. Instant connection.","🏠"),
+  M("Tell a girl she seems like someone who has a hidden talent — then guess it before she answers","Make a real guess based on how she actually looks. Then let her correct you.","✨"),
+  M("Ask a girl what she'd do with a completely free Saturday with unlimited money — no travel allowed","The no-travel rule forces creativity. The answers are always incredible.","💸"),
+  M("Find a girl and ask what the most interesting conversation she's had this week was about","It makes her think — and then you become part of the interesting week","🗣️"),
+  M("Tell a girl you're collecting unpopular opinions today — ask for hers","Frame it like a project. People feel freer to be honest.","🧠"),
+  M("Ask a girl what she thinks is the most romantic thing a person can do that has nothing to do with gifts","Real answers. Real values. Real window into who she is.","💝"),
+  M("Find a girl and ask what she's proud of that most people don't know about","The 'most people don't know' part gets real answers, not resume ones","🌟"),
+  M("Ask a girl in workout clothes what she's training for — then ask what got her into it","People have an origin story for their fitness. It's usually personal.","🏃"),
+  M("Walk up to a girl and ask if she thinks you can tell a lot about someone from their bag","Then let her analyze yours — or analyze hers. Either way you win.","👜"),
+  M("Tell a girl 'you carry yourself like someone who knows what they want' and ask if that's accurate","An observation and a challenge in one sentence","👁️"),
+  M("Ask a girl if she has a food she loves but is slightly embarrassed to admit she loves","Everyone has one. It's funny and human and breaks walls fast.","🍟"),
+  M("Find a girl and ask what she thinks is the best age to be and why — ask for a specific number","Reveals what phase of life she's most excited or nostalgic about","🎂"),
+  M("Ask a girl in a park what she's thinking about — say you've been watching people and she looked the most thoughtful","Specific observation beats generic opener every single time","🌿"),
+  M("Tell a girl you're testing a theory that everyone secretly wants to do one thing they've never told anyone","Yours goes first to make it safe. Then she goes.","🔮"),
+  M("Ask a girl what thing she does for herself that makes her feel most like herself","Deep without being heavy. Reflective without being therapy.","💆"),
+  M("Find a girl and ask if she believes first impressions are accurate — then ask what her first impression of you is","You already know the answer'll be interesting. Say nothing after.","🤨"),
+  M("Ask a girl what's the last thing she completely changed her mind about","Shows you're interested in her thinking, not just her face","🔄"),
+  M("Go up to a group and ask everyone what they would've been in a past life — you answer first","The group interaction loops everyone in. Then you have 4 conversations at once.","🏺"),
+  M("Ask a girl what she'd put on a billboard that the whole city could see","The answers are hilarious, deep, or both. Any of them win.","📋"),
+  M("Tell a girl you're trying to get better at reading people — ask if you can tell her your read on her","Then actually give a thoughtful, real observation. Not a line.","🔍"),
+
+  // ───── HARD ─────
+  H("Walk up to a girl, tell her she's the most interesting-looking person in the room, and ask her to prove it","Say it like you mean it. Don't laugh it off. Don't explain it. Hold the frame.","👑"),
+  H("Go up to a girl in a jacket and ask her about her biggest dream in life — the real one, not the polite answer","Ask 'the real one though' after her first answer. Dig one layer deeper.","🌠"),
+  H("Sit at a table with complete strangers and say you're on a solo adventure and wanted some company","Vulnerability is magnetic. Say it simply and without apologizing.","🏕️"),
+  H("Find a girl and ask what she thinks most guys get completely wrong when they talk to women","Be genuinely curious. Don't get defensive. Actually learn something.","🧠"),
+  H("Tell a girl 'you have a really good energy' and ask what's making her feel that way today","Compliment her vibe, not her looks. It lands completely differently.","✨"),
+  H("Go up to a group of strangers and challenge them to a useless talent competition — you go first","Have a backup talent ready. Anything embarrassing works. Own it.","🎪"),
+  H("Find a girl and tell her she reminds you of someone admirable — explain who and specifically why","Make it a real person. 'You remind me of my friend who started her own business' > any celebrity","🪞"),
+  H("Ask a complete stranger 'what's something you've never told anyone in this room?' — then share yours first","Go first to make it safe. Keep yours real but not heavy.","🔐"),
+  H("Walk up to a girl and say your gut told you to come talk to her — ask if she believes in gut feelings","Deliver it calmly and seriously. It's a statement, not a pickup line.","🫀"),
+  H("Find a girl, start a real conversation, and before leaving ask her honest opinion of you — say be brutal","Takes real confidence. Take the feedback like a champion.","💬"),
+  H("Walk up to a girl and say 'I've been trying to meet new people today and you looked like the most real one here'","Then stop talking completely. Don't add to it. Let her respond to the whole thing.","🎯"),
+  H("Ask a girl what the one thing she wants most in life is — then ask if she's actually working towards it","The follow-up is what makes it. It's accountability, not just a dream question.","🔥"),
+  H("Tell a girl with a coffee you want to know three things about her that aren't on her Instagram","Three things. Not one. Ask them one at a time with full attention.","📵"),
+  H("Find a girl and tell her you're going to guess her whole personality from one answer — ask what scares her most","Make the guess after. Even if wrong, she'll want to correct you in detail.","👻"),
+  H("Go up to a girl and say 'you look like someone who's had a really interesting life' — ask her to show you one chapter","She picks the chapter. That choice tells you everything.","📕"),
+  H("Walk up to two girls together and say you want to know which one has the better answer to one question","Then ask: 'what would you do if you knew you couldn't fail?'","🎤"),
+  H("Ask a girl who's alone what the best decision she's made in the last year was","Best decision > biggest achievement. It's personal and positive.","✅"),
+  H("Tell a girl you've been talking to strangers all day to find out what people are secretly proud of — ask hers","You're on a mission. People want to be part of missions.","🏆"),
+  H("Find a girl at a bar and ask what she thought of you before you walked over","She's already formed an opinion. Make her say it out loud.","🍸"),
+  H("Go up to a girl and ask what the most honest thing she could say about herself right now is","People rarely get asked to be this immediate. The answers are stunning.","🪩"),
+  H("Tell a girl she carries herself like someone who knows something the rest of the room doesn't — ask what it is","A compliment and an invitation to be mysterious. She'll take it.","🌙"),
+  H("Ask a girl what she would change about how she grew up if she could rewrite just one thing","Deep family territory. Not heavy if you ask it warmly and listen fully.","🏡"),
+  H("Find a girl and ask: if she could send a voice note to her 10-year-old self, what would she say?","It asks her to be soft for a second. People love that feeling.","🎙️"),
+  H("Walk up to a girl and say: 'be honest — what's something you want that you think you're not allowed to want?'","Drop the word 'allowed.' It opens something real. Don't rush her answer.","💭"),
+  H("Tell a girl you're writing a list of things worth doing that most people are too scared to try — ask for her contribution","Make her feel like she's contributing to something. Because she is.","📝"),
+  H("Ask a girl who's laughing what the last thing was that made her laugh until she couldn't breathe","You're asking to share a moment. It's intimate and immediate.","😭"),
+  H("Find a girl and ask what she wants to be known for when she's 80","It reframes everything. Watch her face when she actually thinks about it.","🌅"),
+  H("Go up to a girl and say you have one question you ask everyone: 'what are you most in the middle of right now?'","The word 'most' forces a choice. 'Right now' makes it urgent. It works.","⏳"),
+  H("Ask a girl what the version of herself she's working towards looks like — and get specific","Not where she wants to be. What does she look like. What does she do. Specific.","🔭"),
+  H("Walk up to a girl and say: 'I'm going to be straight — I think you seem like someone worth knowing'","Then ask if you can have five minutes of her time. Actually mean it.","⚔️"),
+  H("Find a girl at a coffee shop and ask if she'd be up for a real conversation with a stranger today","Honesty beats any game. Most people say yes if you ask genuinely.","🤍"),
+  H("Ask a girl what the last genuinely brave thing she did was — and don't accept 'nothing' as an answer","People undersell their own courage. Push gently, exactly once.","🦁"),
+  H("Tell a girl you want to know the real her — not the version she puts online — in three minutes","Three minutes feels like a container. It makes it feel safe and fun.","⏱️"),
+  H("Find a girl and ask what her relationship with failure looks like right now","Not sad — ambitious. People building things are always wrestling with this.","💥"),
+  H("Ask a girl what she would do tomorrow if she suddenly stopped caring what anyone thought of her","The answers are always the truth. They almost always surprise her too.","🌪️"),
+  H("Walk up to a girl and tell her you think confidence is the rarest thing in the world — ask what makes her confident","You've positioned confidence as rare and precious. Then handed it to her.","💎"),
+  H("Find a girl and ask what she'd tell the person she was five years ago about the next five years","She's probably mid-transformation. You just acknowledged it.","🔄"),
+  H("Tell a girl 'I bet you're the type of person who...' — finish it with a real specific observation — let her confirm or destroy it","Make it accurate and bold. Vague guesses are lazy.","🎲"),
+  H("Find a girl and ask her point blank: what does she actually want out of today?","So simple it's disarming. Almost nobody gets asked that.","🌄"),
+  H("Walk up to a girl, look her in the eye, and ask: what does the best version of your life look like?","Don't flinch before asking. Don't apologize for the depth. Just ask.","🔥"),
+H("Walk up to a girl and tell her you noticed her the moment you walked in — ask if she noticed you too","Say it like a fact, not a confession. Calm and direct.","👀"),
+H("Find a girl and ask her what she thinks is the most attractive non-physical thing about a person","Her answer tells you exactly what she values. Listen hard.","🧲"),
+H("Go up to a girl and say 'I have 2 minutes — convince me you're the most interesting person in this room'","Flip the script. Let her sell herself. Watch her come alive.","⏰"),
+H("Ask a girl what the one thing is she keeps almost doing but keeps talking herself out of","Almost everyone has one. The 'almost' is the key word.","🚪"),
+H("Tell a girl she looks like she has strong opinions — ask which hill she would actually die on","Strong opinion questions get real personality instantly","⛰️"),
+H("Walk up to a girl and say 'I want to know one thing about you that would surprise most people'","The 'most people' part makes her think beyond the surface answer","🎭"),
+H("Find a girl and ask her what the last thing was that genuinely changed how she sees the world","Deep but not heavy. It respects her intelligence.","🌍"),
+H("Tell a girl 'you give off the energy of someone who's been through something and came out better' — ask if that's true","It's specific and human. Most people will confirm it.","🔥"),
+H("Ask a girl what she would do if she found out today was the last completely free day she'd ever have","The urgency makes people answer with their real priorities","⌛"),
+H("Go up to a girl and say you're trying to understand what makes people feel most alive — ask what does it for her","Simple mission framing. She's now part of your research.","💓"),
+H("Find a girl at a café, sit close enough to talk, and say absolutely nothing — just smile and wait","The silence is the dare. First one to talk loses. (It'll be her.)","🤫"),
+H("Ask a girl what version of herself she's most trying to leave behind right now","People in growth mode feel this deeply. It'll resonate hard.","🦋"),
+H("Walk up to a girl and ask: 'what's something you've forgiven yourself for that took way too long?'","Go first if she hesitates. It makes it safe to be real.","🕊️"),
+H("Tell a girl she looks like someone who knows exactly what she wants — then ask if she does","The challenge at the end is what makes it. Hold eye contact.","🎯"),
+H("Find a girl and ask her to describe her perfect day — but she can't include any screens, travel, or money","The constraints force her to talk about who she actually is","🌸"),
+];
+
+let currentDiff="all",spinCount=0,history=[],isSpinning=false,lastIndex=-1;
+const card=document.getElementById('card');
+const spinBtn=document.getElementById('spinBtn');
+const counter=document.getElementById('counter');
+const historySection=document.getElementById('historySection');
+const historyList=document.getElementById('historyList');
+const deckCount=document.getElementById('deckCount');
+
+function updateDeckCount(){
+  const pool=currentDiff==='all'?challenges:challenges.filter(c=>c.diff===currentDiff);
+  deckCount.innerHTML=`<span>${pool.length}</span> challenges in deck`;
+}
+updateDeckCount();
+
+document.getElementById('difficulties').addEventListener('click',e=>{
+  const btn=e.target.closest('.diff-btn');
+  if(!btn)return;
+  document.querySelectorAll('.diff-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  currentDiff=btn.dataset.diff;
+  updateDeckCount();
+});
+
+spinBtn.addEventListener('click',()=>{
+  if(isSpinning)return;
+  isSpinning=true;
+  const pool=currentDiff==='all'?challenges:challenges.filter(c=>c.diff===currentDiff);
+  let idx;
+  do{idx=Math.floor(Math.random()*pool.length);}while(idx===lastIndex&&pool.length>1);
+  lastIndex=idx;
+  const pick=pool[idx];
+  spinBtn.classList.add('spinning');
+  card.style.setProperty('--accent',pick.color);
+  card.classList.remove('rolling');
+  void card.offsetWidth;
+  const pips=[1,2,3].map(n=>`<div class="heat-pip ${n<=pick.heat?'lit':''}"></div>`).join('');
+  card.innerHTML=`
+    <div class="card-label">${pick.label}</div>
+    <div class="heat-bar">${pips}</div>
+    <div class="card-emoji">${pick.emoji}</div>
+    <div class="card-text">${pick.text}</div>
+    <div class="card-tip">💡 ${pick.tip}</div>`;
+  card.classList.add('rolling');
+  spinCount++;
+  counter.innerHTML=`dares completed: <span>${spinCount}</span>`;
+  history.unshift(pick);
+  if(history.length>5)history.pop();
+  historySection.style.display='block';
+  historyList.innerHTML=history.map(h=>`
+    <div class="history-item">
+      <div class="history-dot" style="background:${h.color}"></div>
+      ${h.emoji} ${h.text}
+    </div>`).join('');
+  setTimeout(()=>{spinBtn.classList.remove('spinning');isSpinning=false;},550);
+});
+
+// ── CUSTOM CURSOR ──
+const cursor    = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursorRing');
+let mx=0, my=0, rx=0, ry=0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top  = my + 'px';
+});
+
+// smooth trailing ring
+(function animRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  cursorRing.style.left = rx + 'px';
+  cursorRing.style.top  = ry + 'px';
+  requestAnimationFrame(animRing);
+})();
+
+// glow animation on ALL buttons
+document.querySelectorAll('button, a, .diff-btn, .spin-btn').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.classList.add('on-btn');
+    cursorRing.classList.add('on-btn');
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.classList.remove('on-btn');
+    cursorRing.classList.remove('on-btn');
+  });
+});
